@@ -1,0 +1,34 @@
+{
+    "require-dev": {
+        "sof3/pharynx": "^0.3.6",
+        "phpstan/phpstan": "^1.10"
+    },
+    "require": {
+        "pocketmine/pocketmine-mp": "^5.0.0",
+        "customiesdev/customies": "dev-master",
+        "alvin0319/libnpcdialogue": "^1.0"
+    },
+    "autoload": {
+        "classmap": ["src"]
+    },
+    "repositories": [{
+        "type": "package",
+        "package": {
+            "name": "customiesdev/customies",
+            "version": "dev-master",
+            "autoload": {
+                "classmap": ["src"]
+            },
+            "source": {
+                "url": "https://github.com/CustomiesDevs/Customies",
+                "type": "git",
+                "reference": "master"
+            }
+        }
+    }],
+    "scripts": {
+        "phpstan": [
+            "./vendor/bin/phpstan analyse src --level max"
+        ]
+    }
+}

@@ -1,0 +1,11 @@
+name: NoBedrockBridging
+author: Endermanbugzjfc
+api: 5.0.0
+version: 0.1.0
+main: Endermanbugzjfc\NoBedrockBridging\Main
+softdepend: Customies
+
+permissions:
+  nobedrockbridging.bypass:
+    description: One is allowed to bedrock bridging when attached this perm.
+    default: op
