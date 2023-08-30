@@ -1,10 +1,9 @@
 <?php
 
-declare(strict_type=1);
+declare(strict_types=1);
 
 namespace Endermanbugzjfc\NoBedrockBridging;
 
-use pocketmine\entity\Location;
 use pocketmine\event\Listener;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\math\Facing;
@@ -28,7 +27,7 @@ class Main extends PluginBase implements Listener {
 
     public function onBlockPlace(BlockPlaceEvent $event) : void {
         $pos = $event->getBlockAgainst()->getPosition();
-        foreach ($event->getTransaction()->getBlocks() as [$x, $y, $z, ]) {
+        foreach ($event->getTransaction()->getBlocks() as [$x, $y, $z, $block]) {
             $newPos = new Vector3($x, $y, $z);
             foreach ([
                 Facing::NORTH,
@@ -37,13 +36,12 @@ class Main extends PluginBase implements Listener {
                 Facing::EAST,
             ] as $direction) {
                 if (!$pos->getSide($direction, step: 1)->equals($newPos)) continue;
-                if ($event->getPlayer()->getHorizontalFacing() !== $direction) break;
+                $player = $event->getPlayer();
+                if ($player->getHorizontalFacing() !== $direction) break;
 
                 $event->cancel();
-                $backward = $event->getPlayer()->getDirectionVector()->multiply(-1.0);
-                $entityPos = $event->getPlayer()->getPosition()->addVector($backward);
-                $entityLoc = Location::fromObject($entityPos, $pos->getWorld());
-                (new DialogueEntity($entityLoc, nbt: null))->spawnTo($event->getPlayer());
+                $player->teleport($pos->up());
+                DialogueEntity::spawnAndOpenDialogue($player);
             }
         }
     }

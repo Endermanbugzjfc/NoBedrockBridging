@@ -1,11 +1,11 @@
 {
     "require-dev": {
         "sof3/pharynx": "^0.3.6",
-        "phpstan/phpstan": "^1.10"
+        "phpstan/phpstan": "^1.10",
+        "customiesdev/customies": "dev-master"
     },
     "require": {
         "pocketmine/pocketmine-mp": "^5.0.0",
-        "customiesdev/customies": "dev-master",
         "alvin0319/libnpcdialogue": "^1.0"
     },
     "autoload": {
