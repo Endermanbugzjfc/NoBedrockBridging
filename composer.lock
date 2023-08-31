@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6054a1f51a8a0535c016c6bf9baab0ca",
+    "content-hash": "478225b5ecf07c4f08dd944d5859fd84",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -169,21 +169,6 @@
                 }
             ],
             "time": "2023-01-15T23:15:59+00:00"
-        },
-        {
-            "name": "customiesdev/customies",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CustomiesDevs/Customies",
-                "reference": "master"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src"
-                ]
-            }
         },
         {
             "name": "fgrosse/phpasn1",
@@ -1161,6 +1146,104 @@
             "time": "2023-04-15T23:01:58+00:00"
         },
         {
+            "name": "sof3/await-generator",
+            "version": "3.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SOF3/await-generator.git",
+                "reference": "90f4dda776eaf9bcb4693599c61c42e4c584a73f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SOF3/await-generator/zipball/90f4dda776eaf9bcb4693599c61c42e4c584a73f",
+                "reference": "90f4dda776eaf9bcb4693599c61c42e4c584a73f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "composer/package-versions-deprecated": "1.11.99.1",
+                "infection/infection": "^0.18.2 || ^0.20.2 || ^0.26.0",
+                "phpstan/phpstan": "^0.12.84",
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "extra": {
+                "virion": {
+                    "spec": "3.0",
+                    "namespace-root": "SOFe\\AwaitGenerator"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "SOFe\\AwaitGenerator\\": "await-generator/src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "SOFe",
+                    "email": "sofe2038@gmail.com"
+                }
+            ],
+            "description": "Use async/await in PHP using generators",
+            "support": {
+                "issues": "https://github.com/SOF3/await-generator/issues",
+                "source": "https://github.com/SOF3/await-generator/tree/3.6.1"
+            },
+            "time": "2023-07-27T09:45:08+00:00"
+        },
+        {
+            "name": "sof3/zleep",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SOF3/zleep.git",
+                "reference": "cf3c3322fe8a415b5586505f9fc1c90d00230f86"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SOF3/zleep/zipball/cf3c3322fe8a415b5586505f9fc1c90d00230f86",
+                "reference": "cf3c3322fe8a415b5586505f9fc1c90d00230f86",
+                "shasum": ""
+            },
+            "require": {
+                "pocketmine/pocketmine-mp": "^5.0.0",
+                "sof3/await-generator": "^3.5.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.4",
+                "phpstan/phpstan": "^1.2",
+                "sof3/pharynx": "^0.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "virion": {
+                    "spec": "3.0",
+                    "namespace-root": "SOFe\\Zleep"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "support": {
+                "issues": "https://github.com/SOF3/zleep/issues",
+                "source": "https://github.com/SOF3/zleep/tree/0.1.0"
+            },
+            "time": "2023-06-16T15:26:05+00:00"
+        },
+        {
             "name": "symfony/filesystem",
             "version": "v6.3.1",
             "source": {
@@ -2018,6 +2101,21 @@
                 }
             ],
             "time": "2022-02-25T21:32:43+00:00"
+        },
+        {
+            "name": "customiesdev/customies",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CustomiesDevs/Customies",
+                "reference": "master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            }
         },
         {
             "name": "justinrainbow/json-schema",

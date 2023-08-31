@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Endermanbugzjfc\NoBedrockBridging;
 
+use SOFe\AwaitGenerator\Await;
+use SOFe\Zleep\Zleep;
 use pocketmine\event\Listener;
 use pocketmine\event\block\BlockPlaceEvent;
-use pocketmine\math\Facing;
+use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\math\Vector3;
 use pocketmine\plugin\PluginBase;
 use ref\libNpcDialogue\NpcDialogue;
@@ -15,6 +17,8 @@ class Main extends PluginBase implements Listener {
     protected function onEnable() : void {
         foreach ([
             NpcDialogue::class,
+            Await::class,
+            Zleep::class,
         ] as $virion) if (!class_exists($virion)) {
             $this->getLogger()->error("Please re-download the plugin PHAR from https://poggit.pmmp.io/p/NoBedrockBridging");
             $this->getServer()->getPluginManager()->disablePlugin($this);
@@ -26,23 +30,27 @@ class Main extends PluginBase implements Listener {
     }
 
     public function onBlockPlace(BlockPlaceEvent $event) : void {
-        $pos = $event->getBlockAgainst()->getPosition();
+        $player = $event->getPlayer();
+        if ($player->isFlying()) return;
+        if ($player->hasPermission("nobedrockbridging.bypass")) return;
+
+        $against = $event->getBlockAgainst()->getPosition();
+        $down = $player->getPosition()->floor()->down();
+        if (!$against->equals($down)) return;
+        $forwardDown = $down->getSide($player->getHorizontalFacing());
         foreach ($event->getTransaction()->getBlocks() as [$x, $y, $z, $block]) {
             $newPos = new Vector3($x, $y, $z);
-            foreach ([
-                Facing::NORTH,
-                Facing::SOUTH,
-                Facing::WEST,
-                Facing::EAST,
-            ] as $direction) {
-                if (!$pos->getSide($direction, step: 1)->equals($newPos)) continue;
-                $player = $event->getPlayer();
-                if ($player->getHorizontalFacing() !== $direction) break;
+            if (!$newPos->equals($forwardDown)) continue;
 
-                $event->cancel();
-                $player->teleport($pos->up());
-                DialogueEntity::spawnAndOpenDialogue($player);
-            }
+            $event->cancel();
+            $player->teleport($against->up());
+            Await::g2c(DialogueEntity::spawnAndOpenDialogue($this, $player));
         }
+    }
+
+    public function onEntityDamage(EntityDamageEvent $event) : void {
+        $entity = $event->getEntity();
+        if (!$entity instanceof DialogueEntity) return;
+        $event->cancel();
     }
 }
