@@ -6,8 +6,7 @@
     },
     "require": {
         "pocketmine/pocketmine-mp": "^5.0.0",
-        "alvin0319/libnpcdialogue": "^1.0",
-        "sof3/zleep": "^0.1.0",
+        "cosmicpe/npcdialogue": "^0.0.2",
         "sof3/await-generator": "^3.6"
     },
     "autoload": {

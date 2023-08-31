@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "478225b5ecf07c4f08dd944d5859fd84",
+    "content-hash": "996806c22ed767b593db3fa0f77687a7",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -66,56 +66,6 @@
             "time": "2022-10-02T11:22:07+00:00"
         },
         {
-            "name": "alvin0319/libnpcdialogue",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/refteams/libNpcDialogue.git",
-                "reference": "e19b6328ad181372b3402357bc400562fe519f7a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/refteams/libNpcDialogue/zipball/e19b6328ad181372b3402357bc400562fe519f7a",
-                "reference": "e19b6328ad181372b3402357bc400562fe519f7a",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpstan/phpstan": "^1.10",
-                "pocketmine/pocketmine-mp": "^5.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "virion": {
-                    "spec": "3.0",
-                    "namespace-root": "ref\\libNpcDialogue"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "ref\\libNpcDialogue": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "alvin0319",
-                    "email": "me@minjae.dev"
-                },
-                {
-                    "name": "nnnlog"
-                }
-            ],
-            "description": "A PocketMine-MP virion to implement functional NPC dialogue.",
-            "support": {
-                "issues": "https://github.com/refteams/libNpcDialogue/issues",
-                "source": "https://github.com/refteams/libNpcDialogue/tree/1.0.0"
-            },
-            "time": "2023-06-13T06:01:06+00:00"
-        },
-        {
             "name": "brick/math",
             "version": "0.11.0",
             "source": {
@@ -169,6 +119,56 @@
                 }
             ],
             "time": "2023-01-15T23:15:59+00:00"
+        },
+        {
+            "name": "cosmicpe/npcdialogue",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Cosmoverse/NpcDialogue.git",
+                "reference": "0b6b602f90f5def024d30df83a3f4919a55ed642"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Cosmoverse/NpcDialogue/zipball/0b6b602f90f5def024d30df83a3f4919a55ed642",
+                "reference": "0b6b602f90f5def024d30df83a3f4919a55ed642",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1",
+                "pocketmine/pocketmine-mp": "^5.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "extra": {
+                "virion": {
+                    "spec": "3.0",
+                    "namespace-root": "cosmicpe\\npcdialogue"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "cosmicpe\\npcdialogue\\": "src/cosmicpe/npcdialogue"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Muqsit",
+                    "email": "notmuqsit@gmail.com"
+                }
+            ],
+            "description": "A PocketMine-MP library for making NPC dialogues",
+            "support": {
+                "issues": "https://github.com/Cosmoverse/NpcDialogue/issues",
+                "source": "https://github.com/Cosmoverse/NpcDialogue/tree/0.0.2"
+            },
+            "time": "2023-08-31T09:40:22+00:00"
         },
         {
             "name": "fgrosse/phpasn1",
@@ -1197,51 +1197,6 @@
                 "source": "https://github.com/SOF3/await-generator/tree/3.6.1"
             },
             "time": "2023-07-27T09:45:08+00:00"
-        },
-        {
-            "name": "sof3/zleep",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SOF3/zleep.git",
-                "reference": "cf3c3322fe8a415b5586505f9fc1c90d00230f86"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SOF3/zleep/zipball/cf3c3322fe8a415b5586505f9fc1c90d00230f86",
-                "reference": "cf3c3322fe8a415b5586505f9fc1c90d00230f86",
-                "shasum": ""
-            },
-            "require": {
-                "pocketmine/pocketmine-mp": "^5.0.0",
-                "sof3/await-generator": "^3.5.2"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.4",
-                "phpstan/phpstan": "^1.2",
-                "sof3/pharynx": "^0.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "virion": {
-                    "spec": "3.0",
-                    "namespace-root": "SOFe\\Zleep"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "support": {
-                "issues": "https://github.com/SOF3/zleep/issues",
-                "source": "https://github.com/SOF3/zleep/tree/0.1.0"
-            },
-            "time": "2023-06-16T15:26:05+00:00"
         },
         {
             "name": "symfony/filesystem",

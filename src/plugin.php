@@ -5,20 +5,18 @@ declare(strict_types=1);
 namespace Endermanbugzjfc\NoBedrockBridging;
 
 use SOFe\AwaitGenerator\Await;
-use SOFe\Zleep\Zleep;
+use cosmicpe\npcdialogue\NpcDialogueManager;
 use pocketmine\event\Listener;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\math\Vector3;
 use pocketmine\plugin\PluginBase;
-use ref\libNpcDialogue\NpcDialogue;
 
 class Main extends PluginBase implements Listener {
     protected function onEnable() : void {
         foreach ([
-            NpcDialogue::class,
+            NpcDialogueManager::class,
             Await::class,
-            Zleep::class,
         ] as $virion) if (!class_exists($virion)) {
             $this->getLogger()->error("Please re-download the plugin PHAR from https://poggit.pmmp.io/p/NoBedrockBridging");
             $this->getServer()->getPluginManager()->disablePlugin($this);
@@ -26,6 +24,10 @@ class Main extends PluginBase implements Listener {
         }
 
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
+        if(!NpcDialogueManager::isRegistered()){
+            NpcDialogueManager::register($this);
+        }
+
         if (!DialogueEntity::register()) $this->getLogger()->warning("Without the Customies plugin, player will only be able to see messages in plain text.");
     }
 
@@ -43,7 +45,7 @@ class Main extends PluginBase implements Listener {
             if (!$newPos->equals($forwardDown)) continue;
 
             $event->cancel();
-            $player->teleport($against->up());
+            $player->teleport($against->up()->add(.5, 0, .5));
             Await::g2c(DialogueEntity::spawnAndOpenDialogue($this, $player));
         }
     }
