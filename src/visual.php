@@ -14,6 +14,15 @@ use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
 
+class DialogueMessages {
+    public function __construct(
+        public readonly string $title,
+        public readonly string $body,
+    ) {
+
+    }
+}
+
 class DialogueEntity extends Living {
     public static function register() : bool {
         // if (!class_exists(CustomiesEntityFactory::class)) return false;
@@ -26,14 +35,16 @@ class DialogueEntity extends Living {
     }
 
     /**
+     * @param \Closure(Player $player): void
      * @return \Generator<mixed, mixed, mixed, void>
      */
-    public static function spawnAndOpenDialogue(Plugin $plugin, Player $player) : \Generator {
+    public static function spawnAndOpenDialogue(Plugin $plugin, Player $player, \Closure $onClose, DialogueMessages $msg) : \Generator {
         false && yield; // For future compatibility.
         NpcDialogueManager::send($player, NpcDialogueBuilder::create()
-            ->setName("This is YOU!")
-            ->setText("")
+            ->setName($msg->title)
+            ->setText($msg->body)
             ->setEntityNpcTexture(self::getNetworkTypeId())
+            ->setCloseListener($onClose)
             ->build());
     }
 

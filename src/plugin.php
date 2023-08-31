@@ -9,8 +9,11 @@ use cosmicpe\npcdialogue\NpcDialogueManager;
 use pocketmine\event\Listener;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\math\Vector3;
+use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\TextFormat;
 
 class Main extends PluginBase implements Listener {
     protected function onEnable() : void {
@@ -27,9 +30,27 @@ class Main extends PluginBase implements Listener {
         if(!NpcDialogueManager::isRegistered()){
             NpcDialogueManager::register($this);
         }
-
         if (!DialogueEntity::register()) $this->getLogger()->warning("Without the Customies plugin, player will only be able to see messages in plain text.");
+
+        foreach ($this->getResources() as $path => $file) {
+            if (!str_starts_with($path, "translations/")) continue;
+            $fileObject = $file->openFile();
+            $raw = $fileObject->fread($file->getSize());
+            unset($fileObject);
+
+            $data = yaml_parse($raw);
+            $entries = $data["dialogue"];
+            foreach ($data["codes"] as $code) $this->messages[$code] = new DialogueMessages(
+                title: TextFormat::colorize($entries["title"]),
+                body: TextFormat::colorize($entries["body"]),
+            );
+        }
     }
+
+    /**
+     * @phpstan-var array<string, DialogueMessage> Key = language code. (Example: en_GB)
+     */
+    private array $messages = [];
 
     public function onBlockPlace(BlockPlaceEvent $event) : void {
         $player = $event->getPlayer();
@@ -45,14 +66,33 @@ class Main extends PluginBase implements Listener {
             if (!$newPos->equals($forwardDown)) continue;
 
             $event->cancel();
-            $player->teleport($against->up()->add(.5, 0, .5));
-            Await::g2c(DialogueEntity::spawnAndOpenDialogue($this, $player));
+            $teleportPos = $against->up()->add(.5, 0, .5);
+            $player->teleport($teleportPos);
+            Await::g2c(DialogueEntity::spawnAndOpenDialogue(
+                plugin: $this,
+                player: $player,
+                onClose: function (Player $player) use ($teleportPos) : void {
+                    unset($this->movementLocks[$player->getId()]);
+                    $player->teleport($teleportPos);
+                },
+                msg: $this->messages[$player->getLocale()] ?? $this->messages["en_GB"],
+            ));
         }
     }
 
-    public function onEntityDamage(EntityDamageEvent $event) : void {
-        $entity = $event->getEntity();
-        if (!$entity instanceof DialogueEntity) return;
+    /**
+     * @phpstan-var array<int, true> Key = player entity runtime ID.
+     */
+    private array $movementLocks = [];
+
+    public function onPlayerMove(PlayerMoveEvent $event) : void {
+        $player = $event->getPlayer();
+        if (!isset($this->movementLocks[$player->getId()])) return;
+
         $event->cancel();
+    }
+
+    public function onEntityDamage(EntityDamageEvent $event) : void {
+        unset($this->movementLocks[$event->getEntity()->getId()]);
     }
 }
