@@ -1,0 +1,13 @@
+codes:
+- en_GB
+- en_US
+
+dialogue:
+  title: "&l&1No Bedrock Bridging"
+  body: >-
+    &9We regret to inform you that the functionality for Bedrock bridging
+    has been &1disabled.&9 We kindly request that you &1utilize Java
+    bridging instead.
+
+
+    &o&1<----- Please refer to this guide!

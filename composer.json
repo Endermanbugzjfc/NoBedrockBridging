@@ -30,6 +30,9 @@
     "scripts": {
         "phpstan": [
             "./vendor/bin/phpstan analyse src --level max"
+        ],
+        "compile": [
+            "./vendor/bin/pharynx -c -i . -o poggit_stage"
         ]
     }
 }

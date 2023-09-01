@@ -4,6 +4,8 @@ branches:
 - poggit/master
 projects:
   NoBedrockBridging:
-    path: ""
+    path: "poggit_stage"
     icon: icon.png
+    libs:
+    - 
 ...
