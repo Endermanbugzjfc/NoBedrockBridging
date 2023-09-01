@@ -1,0 +1,16 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "NoBedrockBridging @ PocketMine-MP",
+		"description": "https://poggit.pmmp.io/p/NoBedrockBridging",
+		"uuid": "bf9082e0-0844-4566-b9a1-155bcb9e0712",
+		"version": [0, 1, 0],
+		"min_engine_version": [1, 19, 80]
+	},
+	"modules": [{
+		"description": "https://poggit.pmmp.io/p/NoBedrockBridging",
+		"type": "resources",
+		"uuid": "52e67b14-c6fe-4049-8d5e-e23869278573",
+		"version": [0, 1, 0]
+	}]
+}
