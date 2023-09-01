@@ -21,7 +21,7 @@ This plugin pops an NPC dialogue to warn players that they cannot be Bedrock bri
 At the same time, it also limits the player's movement so the player will be less likely to fall from the height. This movement constraint will turn off upon the dialogue gets closed or upon the player gets hurt.
 
 # 📥 Installation
-After you have settled the PHARs for [Customies](https://poggit.pmmp.io/p/customies/) and [this plugin,](https://poggit.pmmp.io/p/RankSystem/) you will still need to set up the resource pack or otherwise, the animation won't be visible to the player!
+After you have settled the PHARs for [Customies](https://poggit.pmmp.io/p/customies/) and [this plugin,](https://poggit.pmmp.io/p/NoBedrockBridging/) you will still need to set up the resource pack or otherwise, the animation won't be visible to the player!
 
 1. If your server is freshly installed, start it for once and quickly turn it off. This allows it to generate the essential files.
 2. Locate the `resources_packs` folder and its `resource_packs.yml` file in your server.
