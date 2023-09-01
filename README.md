@@ -12,7 +12,7 @@
     <img alt="Poggit release (latest)" src="https://poggit.pmmp.io/shield.downloads/NoBedrockBridging?style=for-the-badge">  
   </a>
   <a href="https://github.com/Endermanbugzjfc/NoBedrockBridging">  
-    <img alt="GitHub release (latest by SemVer including pre-releases)" src="https://img.shields.io/github/downloads-pre/Endermanbugzjfc/NoBedrockBridging/:tag/total?style=for-the-badge">
+    <img alt="GitHub release (latest by SemVer including pre-releases)" src="https://img.shields.io/github/downloads-pre/Endermanbugzjfc/NoBedrockBridging/latest/total?style=for-the-badge">
   </a>
 </p>
 
