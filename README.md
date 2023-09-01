@@ -26,7 +26,7 @@ After you have settled the PHARs for [Customies](https://poggit.pmmp.io/p/custom
 1. If your server is freshly installed, start it for once and quickly turn it off. This allows it to generate the essential files.
 2. Locate the `resources_packs` folder and its `resource_packs.yml` file in your server.
 3. Download the resource pack `NoBedrockBridging_RP.zip` file from [here.](https://github.com/Endermanbugzjfc/NoBedrockBridging/releases/latest)
-4. Do NOT unzip the file, directly it in `resources_packs`.
+4. Do NOT unzip the file, directly put it in `resources_packs`.
 5. Open `resource_packs.yml` with a text editor.
 6. Register the file name, which should be `NoBedrockBridging_RP.zip` if you have not yet changed it.
 7. It is recommended to also turn on `force_resources`. That will result in players being kicked if they accidentally or intentionally press the "join without pack" button.
