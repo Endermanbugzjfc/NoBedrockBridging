@@ -2,7 +2,8 @@
     "require-dev": {
         "sof3/pharynx": "^0.3.6",
         "phpstan/phpstan": "^1.10",
-        "customiesdev/customies": "dev-master"
+        "customiesdev/customies": "dev-master",
+        "friendsofphp/php-cs-fixer": "^3.25"
     },
     "require": {
         "pocketmine/pocketmine-mp": "^5.0.0",
