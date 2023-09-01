@@ -1,0 +1,9 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Endermanbugzjfc/NoBedrockBridging
+build-by-default: true
+branches:
+- poggit/master
+projects:
+  NoBedrockBridging:
+    path: ""
+    icon: icon.png
+...
