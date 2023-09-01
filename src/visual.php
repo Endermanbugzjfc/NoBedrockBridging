@@ -4,22 +4,24 @@ declare(strict_types=1);
 
 namespace Endermanbugzjfc\NoBedrockBridging;
 
+use Closure;
 use cosmicpe\npcdialogue\NpcDialogueBuilder;
 use cosmicpe\npcdialogue\NpcDialogueManager;
 use customiesdevs\customies\entity\CustomiesEntityFactory;
+use Exception;
 use pocketmine\entity\EntitySizeInfo;
 use pocketmine\entity\Living;
 use pocketmine\entity\Location;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
+use RuntimeException;
 
 class DialogueMessages {
     public function __construct(
         public readonly string $title,
         public readonly string $body,
     ) {
-
     }
 }
 
@@ -35,9 +37,9 @@ class DialogueEntity extends Living {
     }
 
     /**
-     * @param \Closure(Player $player): void
+     * @param Closure(Player $player): void
      */
-    public static function spawnAndOpenDialogue(Plugin $plugin, Player $player, \Closure $onClose, DialogueMessages $msg) : void {
+    public static function spawnAndOpenDialogue(Plugin $plugin, Player $player, Closure $onClose, DialogueMessages $msg) : void {
         NpcDialogueManager::send($player, NpcDialogueBuilder::create()
             ->setName($msg->title)
             ->setText($msg->body)
@@ -54,11 +56,11 @@ class DialogueEntity extends Living {
         return "Dialogue Entity";
     }
 
-    private function crash() : \Exception {
-        return new \RuntimeException("Should never be spawned on server-side!");
+    private function crash() : Exception {
+        return new RuntimeException("Should never be spawned on server-side!");
     }
 
-    public function __construct(Location $location, ?CompoundTag $nbt = null){
+    public function __construct(Location $location, ?CompoundTag $nbt = null) {
         throw $this->crash();
     }
 
