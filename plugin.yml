@@ -1,5 +1,5 @@
 name: NoBedrockBridging
-description: Want a fairer bridging?
+description: This plugin pops an NPC dialogue to warn players that they cannot be Bedrock bridging, with a guiding animation.
 author: Endermanbugzjfc
 api: 5.0.0
 version: 0.1.0
@@ -8,5 +8,5 @@ depend: Customies
 
 permissions:
   nobedrockbridging.bypass:
-    description: One is allowed to bedrock bridging when attached this perm.
+    description: One is allowed to Bedrock bridging when attached this perm.
     default: false
