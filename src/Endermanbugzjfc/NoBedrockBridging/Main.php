@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Endermanbugzjfc\NoBedrockBridging;
 
-use Endermanbugzjfc\NoBedrockBridging\libs\_12b3d86aa40147ec\cosmicpe\npcdialogue\NpcDialogueManager;
+use Endermanbugzjfc\NoBedrockBridging\libs\_cf61bfba62556b0f\cosmicpe\npcdialogue\NpcDialogueManager;
 use pocketmine\event\Listener;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\entity\EntityDamageEvent;

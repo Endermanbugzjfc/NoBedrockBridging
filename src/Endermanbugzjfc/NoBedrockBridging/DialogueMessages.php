@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Endermanbugzjfc\NoBedrockBridging;
 
-use Endermanbugzjfc\NoBedrockBridging\libs\_12b3d86aa40147ec\cosmicpe\npcdialogue\NpcDialogueBuilder;
-use Endermanbugzjfc\NoBedrockBridging\libs\_12b3d86aa40147ec\cosmicpe\npcdialogue\NpcDialogueManager;
+use Endermanbugzjfc\NoBedrockBridging\libs\_cf61bfba62556b0f\cosmicpe\npcdialogue\NpcDialogueBuilder;
+use Endermanbugzjfc\NoBedrockBridging\libs\_cf61bfba62556b0f\cosmicpe\npcdialogue\NpcDialogueManager;
 use customiesdevs\customies\entity\CustomiesEntityFactory;
 use pocketmine\entity\EntitySizeInfo;
 use pocketmine\entity\Living;
