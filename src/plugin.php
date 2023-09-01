@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Endermanbugzjfc\NoBedrockBridging;
 
-use SOFe\AwaitGenerator\Await;
 use cosmicpe\npcdialogue\NpcDialogueManager;
 use pocketmine\event\Listener;
 use pocketmine\event\block\BlockPlaceEvent;
@@ -68,7 +67,7 @@ class Main extends PluginBase implements Listener {
             $event->cancel();
             $teleportPos = $against->up()->add(.5, 0, .5);
             $player->teleport($teleportPos);
-            Await::g2c(DialogueEntity::spawnAndOpenDialogue(
+            DialogueEntity::spawnAndOpenDialogue(
                 plugin: $this,
                 player: $player,
                 onClose: function (Player $player) use ($teleportPos) : void {
@@ -76,7 +75,7 @@ class Main extends PluginBase implements Listener {
                     $player->teleport($teleportPos);
                 },
                 msg: $this->messages[$player->getLocale()] ?? $this->messages["en_GB"],
-            ));
+            );
         }
     }
 

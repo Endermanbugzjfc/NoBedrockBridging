@@ -6,8 +6,7 @@
     },
     "require": {
         "pocketmine/pocketmine-mp": "^5.0.0",
-        "cosmicpe/npcdialogue": "^0.0.2",
-        "sof3/await-generator": "^3.6"
+        "cosmicpe/npcdialogue": "^0.0.2"
     },
     "autoload": {
         "classmap": ["src"]

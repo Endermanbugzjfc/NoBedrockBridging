@@ -36,10 +36,8 @@ class DialogueEntity extends Living {
 
     /**
      * @param \Closure(Player $player): void
-     * @return \Generator<mixed, mixed, mixed, void>
      */
-    public static function spawnAndOpenDialogue(Plugin $plugin, Player $player, \Closure $onClose, DialogueMessages $msg) : \Generator {
-        false && yield; // For future compatibility.
+    public static function spawnAndOpenDialogue(Plugin $plugin, Player $player, \Closure $onClose, DialogueMessages $msg) : void {
         NpcDialogueManager::send($player, NpcDialogueBuilder::create()
             ->setName($msg->title)
             ->setText($msg->body)
