@@ -2,7 +2,7 @@ name: NoBedrockBridging
 description: This plugin pops an NPC dialogue to warn players that they cannot be Bedrock bridging, with a guiding animation.
 author: Endermanbugzjfc
 api: 5.0.0
-version: 0.1.0
+version: 0.1.1
 main: Endermanbugzjfc\NoBedrockBridging\Main
 depend: Customies
 

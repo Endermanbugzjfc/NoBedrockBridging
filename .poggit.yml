@@ -6,6 +6,4 @@ projects:
   NoBedrockBridging:
     path: "poggit_stage"
     icon: icon.png
-    libs:
-    - 
 ...
