@@ -12,7 +12,7 @@
     <img alt="Poggit release (latest)" src="https://poggit.pmmp.io/shield.downloads/NoBedrockBridging?style=for-the-badge">  
   </a>
   <a href="https://github.com/Endermanbugzjfc/NoBedrockBridging">  
-    <img alt="GitHub release (latest by SemVer including pre-releases)" src="https://img.shields.io/github/downloads-pre/Endermanbugzjfc/NoBedrockBridging/:tag/total?style=for-the-badge">
+    <img alt="GitHub release (latest by SemVer including pre-releases)" src="https://img.shields.io/github/downloads-pre/Endermanbugzjfc/NoBedrockBridging/latest/total?style=for-the-badge">
   </a>
 </p>
 
@@ -26,9 +26,9 @@ After you have settled the PHARs for [Customies](https://poggit.pmmp.io/p/custom
 1. If your server is freshly installed, start it for once and quickly turn it off. This allows it to generate the essential files.
 2. Locate the `resources_packs` folder and its `resource_packs.yml` file in your server.
 3. Download the resource pack `NoBedrockBridging_RP.zip` file from [here.](https://github.com/Endermanbugzjfc/NoBedrockBridging/releases/latest)
-4. Do NOT unzip the file, directly it in `resources_packs`.
+4. Do NOT unzip the file, directly put it in `resources_packs`.
 5. Open `resource_packs.yml` with a text editor.
-6. Registry the file name, which should be `NoBedrockBridging_RP.zip` if you have not yet changed it.
+6. Register the file name, which should be `NoBedrockBridging_RP.zip` if you have not yet changed it.
 7. It is recommended to also turn on `force_resources`. That will result in players being kicked if they accidentally or intentionally press the "join without pack" button.
 
 If your text editor has code highlighting, you may notice that some texts are greyed out. Those are comments. It is recommended to keep that around for future reference. However, if you think that bothers your way, you may choose to remove them.
@@ -51,7 +51,7 @@ resource_stack:
   #To specify a resource encryption key, put the key in the <resource>.key file alongside the resource pack. Example: vanilla.zip.key
 ```
 # 🔐 Permission node
-- `nobedrockbridging.bypass`: One is allowed to Bedrock bridging when attached to this perm. This permission is not attached to nobody by default.
+- `nobedrockbridging.bypass`: One is allowed to Bedrock bridging when attached to this perm. This permission is not attached to nobody by default. ***(Note: players who can fly can always bypass.)***
 
 *Want to allow Bedrock bridging for certain groups of people? Use [RankSystem](https://poggit.pmmp.io/p/RankSystem/) achieve it!*
 
