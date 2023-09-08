@@ -51,7 +51,7 @@ resource_stack:
   #To specify a resource encryption key, put the key in the <resource>.key file alongside the resource pack. Example: vanilla.zip.key
 ```
 # 🔐 Permission node
-- `nobedrockbridging.bypass`: One is allowed to Bedrock bridging when attached to this perm. This permission is not attached to nobody by default.
+- `nobedrockbridging.bypass`: One is allowed to Bedrock bridging when attached to this perm. This permission is not attached to nobody by default. ***(Note: players who can fly can always bypass.)***
 
 *Want to allow Bedrock bridging for certain groups of people? Use [RankSystem](https://poggit.pmmp.io/p/RankSystem/) achieve it!*
 

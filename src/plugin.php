@@ -63,7 +63,7 @@ class Main extends PluginBase implements Listener {
 
     public function onBlockPlace(BlockPlaceEvent $event) : void {
         $player = $event->getPlayer();
-        if ($player->isFlying()) {
+        if ($player->getAllowFlight()) {
             return;
         }
         if ($player->hasPermission("nobedrockbridging.bypass")) {
