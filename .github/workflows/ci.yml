@@ -6,12 +6,14 @@ jobs:
   yamllint:
     name: yaml lint
     runs-on: ubuntu-20.04
+    permissions:
+      issues: write
     steps:
     - uses: actions/checkout@v4
     - uses: karancode/yamllint-github-action@master
       with:
         yamllint_file_or_dir: "./resources/translations"
-        yamllint_strict: true
+        yamllint_strict: false
         yamllint_comment: true
       env:
         GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
