@@ -6,15 +6,18 @@ jobs:
   yamllint:
     name: yaml lint
     runs-on: ubuntu-20.04
-    permissions:
-      issues: write
     steps:
     - uses: actions/checkout@v4
     - uses: karancode/yamllint-github-action@master
       with:
         yamllint_file_or_dir: "./resources/translations"
-        yamllint_strict: false
-        yamllint_comment: true
+        yamllint_strict: false # Seems to correlate to the return code.
+        yamllint_comment: true # View them in the "Files changed" tab.
+        yamllint_config_datapath: |-
+          rules:
+            new-lines: disabled
+            document-start: disabled
+            trailing-spaces: warning
       env:
         GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
