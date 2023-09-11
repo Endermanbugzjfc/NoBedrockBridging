@@ -1,0 +1,12 @@
+codes:
+- fr_FR
+
+dialogue:
+  title: "&l&1Ponts Bedrock interdits"
+  body: >-
+    &9Nous regrettons de vous informer que la fonctionnalité de création
+    de ponts bedrock a été &1désactivée&9.
+    Utilisez plutôt &1les ponts Java&9.
+
+
+    &o&1<----- Référez vous à ce guide!
