@@ -13,11 +13,7 @@ jobs:
         yamllint_file_or_dir: "./resources/translations"
         yamllint_strict: false # Seems to correlate to the return code.
         yamllint_comment: true # View them in the "Files changed" tab.
-        yamllint_config_datapath: |-
-          rules:
-            new-lines: disabled
-            document-start: disabled
-            trailing-spaces: warning
+        yamllint_config_datapath: '{"rules": {"new-lines": "disabled", "document-start": "disabled", "trailing-spaces": "warning"}}'
       env:
         GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
