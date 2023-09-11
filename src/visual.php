@@ -8,14 +8,11 @@ use Closure;
 use cosmicpe\npcdialogue\NpcDialogueBuilder;
 use cosmicpe\npcdialogue\NpcDialogueManager;
 use customiesdevs\customies\entity\CustomiesEntityFactory;
-use Exception;
 use pocketmine\entity\EntitySizeInfo;
 use pocketmine\entity\Living;
-use pocketmine\entity\Location;
-use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
-use RuntimeException;
 
 class DialogueMessages {
     public function __construct(
@@ -56,15 +53,14 @@ class DialogueEntity extends Living {
         return "Dialogue Entity";
     }
 
-    private function crash() : Exception {
-        return new RuntimeException("Should never be spawned on server-side!");
-    }
-
-    public function __construct(Location $location, ?CompoundTag $nbt = null) {
-        throw $this->crash();
+    protected bool $gravityEnabled = false;
+    public function attack(EntityDamageEvent $source) : void {
+        if ($source->isCancelled()) return;
+        $this->flagForDespawn();
     }
 
     public function getInitialSizeInfo() : EntitySizeInfo {
-        throw $this->crash();
+        // Randomly filled values:
+        return new EntitySizeInfo(height: 1, width: 1, eyeHeight: null);
     }
 }
