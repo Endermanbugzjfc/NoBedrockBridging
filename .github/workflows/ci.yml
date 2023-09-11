@@ -29,9 +29,7 @@ jobs:
         php-version: 8.1
         install-path: "../bin"
         pm-version-major: "5"
-    - name: pharynx depend-files workaround
-      run: mv LICENSE.md LICENSE
-    - uses: SOF3/pharynx@v0.2
+    - uses: SOF3/pharynx@v0.1
       id: pharynx
     - uses: actions/upload-artifact@v3
       with:
