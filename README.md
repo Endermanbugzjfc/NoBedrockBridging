@@ -59,6 +59,7 @@ resource_stack:
 
 - English
 - Chinese Traditional & Simplified
+- French [@Bqleine](https://github.com/Bqleine)
 
 # 📜 License
 The code of both the plugin and resource pack is open-sourced under the [Apache-2 license.](https://github.com/Endermanbugzjfc/NoBedrockBridging/blob/master/LICENSE.md)
