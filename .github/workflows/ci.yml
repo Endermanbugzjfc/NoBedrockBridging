@@ -1,0 +1,41 @@
+name: CI
+on:
+- pull_request
+- workflow_dispatch
+  
+jobs:
+  yamllint:
+    name: yaml lint
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v4
+    - uses: karancode/yamllint-github-action@master
+      with:
+        yamllint_file_or_dir: "./resources/translations"
+        yamllint_strict: false # Seems to correlate to the return code.
+        yamllint_comment: true # View them in the "Files changed" tab.
+        yamllint_config_datapath: '{"rules":{"new-lines":"disable","document-start":"disable","trailing-spaces":"disable"}}'
+      env:
+        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  pharynx:
+    name: build phar
+    runs-on: ubuntu-20.04
+    needs:
+    - yamllint
+    if: github.event.pull_request.draft == false
+    steps:
+    - uses: actions/checkout@v4
+    - uses: pmmp/setup-php-action@main
+      with:
+        php-version: 8.1
+        install-path: "../bin"
+        pm-version-major: "5"
+    - uses: SOF3/pharynx@v0.2
+      id: pharynx
+      with:
+        stage-poggit: false
+    - uses: actions/upload-artifact@v3
+      with:
+        name: plugin.phar
+        path: ${{steps.pharynx.outputs.output-phar}}
